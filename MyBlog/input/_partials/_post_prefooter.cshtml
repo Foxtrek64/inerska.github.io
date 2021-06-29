@@ -1,12 +1,14 @@
-@model IDocument
-
 <section class="section container is-max-desktop">
+    <div id="disqus_thread"></div>
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_config = function() {
+        this.page.identifier = '@Model.Destination.FileNameWithoutExtension.FullPath';
+        this.page.title = '@Model.GetTitle()';
+        this.page.url = '@Document.GetLink(true)';
+        // this.page.category_id = '';
+    }
     var disqus_shortname = 'agdl-dev'; // required: replace example with your forum shortname
-    var disqus_identifier = '@Model.Destination.FileNameWithoutExtension.FullPath';
-    var disqus_title = '@Model.GetString(WebKeys.Title)';
-    var disqus_url = '@Context.GetLink(Model, true)';
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -21,4 +23,5 @@
         (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
     }());
     </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 </section>
